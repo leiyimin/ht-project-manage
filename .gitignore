@@ -1,3 +1,36 @@
+HELP.md
+target/
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+.mvn
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+### VS Code ###
+.vscode/
+/src/main/java/com/htmap/htprojects/controller/TestController.java
+/tmp/
+/src/main/resources/generatorConfig.xml
+/mvnw.cmd
+/mvnw
+######ui
 .DS_Store
 node_modules
 /dist
