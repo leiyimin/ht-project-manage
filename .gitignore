@@ -1,6 +1,5 @@
 HELP.md
 target/
-!.mvn/wrapper/maven-wrapper.jar
 ### STS ###
 .apt_generated
 .classpath
@@ -31,12 +30,25 @@ build/
 /src/main/resources/generatorConfig.xml
 /mvnw.cmd
 /mvnw
-!/logs/
-/logs/
-/tmp/
-/任务列表 (6).xlsx
-/任务导入模板2.xlsx
-/任务数据模版.xls
-/任务数据模版 - 副本.xls
-/任务数据模版2.xls
-!/logs/
+######ui
+.DS_Store
+node_modules
+/dist
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+.vscode
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
