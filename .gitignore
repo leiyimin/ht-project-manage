@@ -1,0 +1,42 @@
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+.mvn
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+### VS Code ###
+.vscode/
+/src/main/java/com/htmap/htprojects/controller/TestController.java
+/tmp/
+/src/main/resources/generatorConfig.xml
+/mvnw.cmd
+/mvnw
+!/logs/
+/logs/
+/tmp/
+/任务列表 (6).xlsx
+/任务导入模板2.xlsx
+/任务数据模版.xls
+/任务数据模版 - 副本.xls
+/任务数据模版2.xls
+!/logs/
