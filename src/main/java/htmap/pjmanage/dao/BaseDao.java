@@ -19,7 +19,6 @@ public interface BaseDao {
                                    @Param("equalWhere") Map equalWhere,
                                    @Param("likeWhere") Map likeWhere,
                                    @Param("scopeWhere") Map scopeWhere,
-                                   @Param("timeScopeWhere") Map timeScopeWhere,
                                    @Param("orderBy") String orderBy,
                                    @Param("orderByType") String orderByType);
 }

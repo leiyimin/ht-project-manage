@@ -13,6 +13,7 @@
 
         <!-- 开启驼峰命名规范-->
         <setting name="mapUnderscoreToCamelCase" value="true" />
+        <setting name="logImpl" value="LOG4J2"/>
     </settings>
 
 </configuration>

@@ -27,6 +27,9 @@
             </if>
             <if test="orderBy != null">
                 order by ${orderBy}
+                <if test="orderByType != null">
+                    ${orderByType}
+                </if>
             </if>
         </where>
     </select>
