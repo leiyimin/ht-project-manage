@@ -3,6 +3,7 @@ package htmap.pjmanage.dao;
 import htmap.pjmanage.entity.User;
 
 import java.util.List;
+import java.util.Map;
 
 public interface UserDao{
 
@@ -14,5 +15,5 @@ public interface UserDao{
 
     Integer deleteMore(List<Integer> ids);
 
-    Integer add(User user);
+    Integer add(Map<String,Object> user);
 }

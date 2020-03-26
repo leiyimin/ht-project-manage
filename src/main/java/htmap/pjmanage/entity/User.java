@@ -1,5 +1,8 @@
 package htmap.pjmanage.entity;
 
+import org.apache.ibatis.type.Alias;
+
+@Alias("user")
 public class User {
     private Integer id;
     private String userName;

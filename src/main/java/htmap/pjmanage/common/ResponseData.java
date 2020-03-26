@@ -19,10 +19,12 @@ public class ResponseData {
         return new ResponseData(Constants.RESPONSE_CODE_SUCCESSFUL, null, null);
     }
 
+    public static ResponseData fail() {
+        return new ResponseData(Constants.RESPONSE_CODE_FAILED, "", null);
+    }
     public static ResponseData fail(String errMsg) {
         return new ResponseData(Constants.RESPONSE_CODE_FAILED, errMsg, null);
     }
-
     public Integer getCode() {
         return code;
     }
