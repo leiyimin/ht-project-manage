@@ -1,9 +1,15 @@
 package htmap.pjmanage.controller;
 
 
+import htmap.pjmanage.common.BaseController;
+import htmap.pjmanage.common.ResponseData;
+import htmap.pjmanage.entity.User;
+import htmap.pjmanage.service.IUserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
-import org.springframework.stereotype.Controller;
+import java.util.List;
 
 /**
  * <p>
@@ -13,9 +19,16 @@ import org.springframework.stereotype.Controller;
  * @author helihuo
  * @since 2020-03-30
  */
-@Controller
+@RestController
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
+    @Autowired
+    IUserService service;
 
+    @RequestMapping("getAll")
+    public ResponseData getUser() {
+        List<User> users = service.list();
+        return ResponseData.success(users);
+    }
 }
 

@@ -1,6 +1,6 @@
 package htmap.pjmanage.dao;
 
-import htmap.pjmanage.entity.Role;
+import htmap.pjmanage.entity.RoleMenu;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author helihuo
  * @since 2020-03-30
  */
-public interface RoleMapper extends BaseMapper<Role> {
+public interface RoleMenuDao extends BaseMapper<RoleMenu> {
 
 }

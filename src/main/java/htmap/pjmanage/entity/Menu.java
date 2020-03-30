@@ -2,8 +2,6 @@ package htmap.pjmanage.entity;
 
 import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
 
 /**
  * <p>
@@ -14,7 +12,6 @@ import io.swagger.annotations.ApiModelProperty;
  * @since 2020-03-30
  */
 @TableName("t_menu")
-@ApiModel(value="Menu对象", description="")
 public class Menu implements Serializable {
 
     private static final long serialVersionUID=1L;

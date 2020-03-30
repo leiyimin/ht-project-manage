@@ -1,8 +1,6 @@
 package htmap.pjmanage.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableName;
-
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
 
 /**
@@ -16,11 +14,10 @@ import java.io.Serializable;
 @TableName("t_role_user")
 public class RoleUser implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    @TableField("user_id")
     private Integer userId;
-    @TableField("role_code")
+
     private String roleCode;
 
 
@@ -43,7 +40,7 @@ public class RoleUser implements Serializable {
     @Override
     public String toString() {
         return "RoleUser{" +
-        ", userId=" + userId +
+        "userId=" + userId +
         ", roleCode=" + roleCode +
         "}";
     }

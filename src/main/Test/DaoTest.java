@@ -1,18 +1,19 @@
-import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
-public class MapperTest {
+public class DaoTest {
 
 //    @Autowired
-//    UserMapper userMapper;
-
-    @Test
-    public void UserMapperTest(){
-//        User user = userMapper.selectById(1);
-//        System.out.print(user);
-    }
+//    UserDao userDao;
+//
+//    @Test
+//    public void UserDaoTest() {
+//        List<User> users = userDao.selectList(null);
+//        for (User user : users){
+//            System.out.print(user);
+//        }
+//    }
 }

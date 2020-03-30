@@ -1,7 +1,7 @@
 package htmap.pjmanage.service.impl;
 
 import htmap.pjmanage.entity.User;
-import htmap.pjmanage.dao.UserMapper;
+import htmap.pjmanage.dao.UserDao;
 import htmap.pjmanage.service.IUserService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-03-30
  */
 @Service
-public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements IUserService {
+public class UserServiceImpl extends ServiceImpl<UserDao, User> implements IUserService {
 
 }

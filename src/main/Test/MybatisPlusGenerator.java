@@ -1,10 +1,10 @@
 import com.baomidou.mybatisplus.annotation.DbType;
-import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import htmap.pjmanage.common.BaseController;
 import org.junit.Test;
@@ -29,7 +29,9 @@ public class MybatisPlusGenerator {
         globalConfig.setOpen(false)//打开目标文件夹
                 .setFileOverride(false)//覆盖模式
                 .setEnableCache(true)//xml开启二级缓存
-                .setSwagger2(true)
+                .setSwagger2(false)
+                .setDateType(DateType.ONLY_DATE)
+                .setMapperName("%sDao")//mapper 命名方式  '%s'是占位符
                 .setBaseResultMap(true)//生成resultMap
                 .setBaseColumnList(true);//在xml中生成基础列;
 
@@ -54,13 +56,13 @@ public class MybatisPlusGenerator {
         strategyConfig.setCapitalMode(false)//开启全局大写命名
                 .setNaming(NamingStrategy.underline_to_camel)//下划线到驼峰的命名方式
                 .setTablePrefix("t_")        //表名前缀
-                .setEntityLombokModel(false)//使用lombok
-                .setExclude(null);//排除的表，String数组
-//                .setInclude(tables);//逆向工程使用的表
+                .setEntityLombokModel(false);//使用lombok
+        strategyConfig.setInclude("t_user");//逆向工程使用的表
+//        strategyConfig.setExclude(null);//排除的表，String数组
         strategyConfig.setSuperControllerClass(BaseController.class);//controller父类
         strategyConfig.setRestControllerStyle(true);//生成RestController
         strategyConfig.setControllerMappingHyphenStyle(true);//驼峰转连接
-        strategyConfig.setLogicDeleteFieldName("logic_flag");//逻辑删除字段名
+        strategyConfig.setLogicDeleteFieldName("is_delete");//逻辑删除字段名
         //5、整合配置
         AutoGenerator autoGenerator = new AutoGenerator();
         autoGenerator.setGlobalConfig(globalConfig)
