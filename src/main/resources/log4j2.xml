@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-
 <!-- monitorInterval，配置为120，单位为秒。即在服务运行过程中发生了log4j2配置文件的修改，log4j2能够在monitorInterval时间范围重新加载配置，无需重启应用。-->
 <Configuration status="WARN" monitorInterval="120">
-
 
     <properties>
         <!--当输出到文件中的时候使用LOG_HOME替代输出到的文件夹,类似于配置java环境的时候的JAVA_HOME的做法-->
@@ -24,7 +21,8 @@
             <!--pattern控制格式化输出的格式-->
             <!--例子:在代码中写入logger.info("info级别信息");-->
             <!--输出:12:8:34.501 [main] INFO  com.selton.Log4jTest - info级别信息-->
-            <PatternLayout pattern="%d{H:m:s.S} [%t] %-5level %logger{36} - %msg%n"/>
+<!--            <PatternLayout pattern="%d{H:m:s.S} [%t] %-5level %logger{36} - %msg%n"/>-->
+            <PatternLayout pattern="%d{HH:mm:ss.S} [%-5level] - %msg%n"/>
         </Console>
 
         <!--临时日志生成-->
@@ -42,7 +40,6 @@
             <!--onMatch，表示当日志事件的日志级别与level一致时，应怎么做。一般为ACCEPT，表示接受。-->
             <!--onMismatch，表示日志事件的日志级别与level不一致时，应怎么做。一般为DENY，表示拒绝。也可以为NEUTRAL表示中立。-->
             <Filters>
-
                 <!--最下方的Root level="debug",如果不设置这句的话,4个级别信息都会打印,设置后,就会只打印INFO以及之上-->
                 <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
             </Filters>
@@ -67,7 +64,7 @@
         <Root level="debug">
             <AppenderRef ref="File"/>
         </Root>
-        <Logger name="htmap.pjmanage.dao" level="DEBUG" additivity="false">
+        <Logger name="htmap.pjmanage.mapper" level="TRACE" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
     </Loggers>
