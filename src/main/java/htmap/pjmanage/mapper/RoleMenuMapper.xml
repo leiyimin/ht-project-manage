@@ -1,21 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="htmap.pjmanage.mapper.MenuMapper">
+<mapper namespace="htmap.pjmanage.dao.RoleMenuMapper">
 
     <!-- 开启二级缓存 -->
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache"/>
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="htmap.pjmanage.entity.Menu">
-        <id column="code" property="code" />
-        <result column="name" property="name" />
-        <result column="p_code" property="pCode" />
-        <result column="disabled" property="disabled" />
+    <resultMap id="BaseResultMap" type="htmap.pjmanage.entity.RoleMenu">
+        <id column="rolemenu_code" property="rolemenuCode" />
+        <result column="role_code" property="roleCode" />
+        <result column="menu_code" property="menuCode" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        code, name, p_code, disabled
+        role_code, menu_code, rolemenu_code
     </sql>
 
 </mapper>

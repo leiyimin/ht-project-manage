@@ -1,9 +1,9 @@
 package htmap.pjmanage.service.impl;
 
 import htmap.pjmanage.entity.Menu;
-import htmap.pjmanage.mapper.MenuMapper;
-import htmap.pjmanage.service.MenuService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import htmap.pjmanage.dao.MenuMapper;
+import htmap.pjmanage.service.IMenuService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-03-30
  */
 @Service
-public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements MenuService {
+public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements IMenuService {
 
 }

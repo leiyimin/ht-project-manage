@@ -18,38 +18,37 @@
           p:jdbcUrl="${url}"
           p:user="${username}"
           p:password="${password}"/>
-
-    <!-- 5、mybatisplus的全局策略配置 -->
-    <bean id="globalConfiguration" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">
-        <!-- 2.3版本后，驼峰命名默认值就是true，所以可不配置 -->
-        <property name="dbColumnUnderline" value="true"/>
-        <!-- 全局主键自增策略，0表示auto -->
-        <property name="idType" value="0"/>
-        <!-- 全局表前缀配置 -->
+    <bean id="dbConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig.DbConfig">
         <property name="tablePrefix" value="t_"/>
-
+        <property name="idType" value="AUTO"/>
+        <property name="logicDeleteValue" value="1"/>
+        <property name="logicNotDeleteValue" value="0"/>
     </bean>
+    <!-- mybatisplus的全局策略配置 -->
+    <bean id="mpGlobalConfiguration" class="com.baomidou.mybatisplus.core.config.GlobalConfig">
+        <property name="dbConfig" ref="dbConfig"/>
+    </bean>
+
     <!-- mybatis文件配置，扫描所有mapper文件 -->
     <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
-    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">
+    <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="typeAliasesPackage" value="htmap.pjmanage.entity"/>
 <!--        <property name="mapperLocations" value="classpath:mapper/*.xml"/>-->
-<!--        <property name="mapperLocations" value="htmap/pjmanage/mapper/xml/*.xml"/>-->
         <!-- 注入全局配置 -->
-        <property name="globalConfig" ref="globalConfiguration"/>
+        <property name="globalConfig" ref="mpGlobalConfiguration"/>
         <!-- 配置插件 -->
         <property name="plugins">
             <list>
                 <!-- 分页插件 -->
-                <bean class="com.baomidou.mybatisplus.plugins.PaginationInterceptor"/>
+                <bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"/>
             </list>
         </property>
     </bean>
 
     <!-- 4、DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
-          p:basePackage="htmap.pjmanage.mapper"
+          p:basePackage="htmap.pjmanage.dao"
           p:sqlSessionFactoryBeanName="sqlSessionFactory"/>
 </beans>

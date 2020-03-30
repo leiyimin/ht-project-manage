@@ -1,7 +1,7 @@
-package htmap.pjmanage.mapper;
+package htmap.pjmanage.dao;
 
 import htmap.pjmanage.entity.Role;
-import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 
 /**
  * <p>

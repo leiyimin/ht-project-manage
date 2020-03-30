@@ -1,9 +1,9 @@
 package htmap.pjmanage.entity;
 
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * <p>
@@ -14,14 +14,17 @@ import java.io.Serializable;
  * @since 2020-03-30
  */
 @TableName("t_role")
+@ApiModel(value="Role对象", description="")
 public class Role implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    @TableId(value = "code", type = IdType.AUTO)
-    private String code;
+      private String code;
+
     private String name;
+
     private String description;
+
     private Integer disabled;
 
 
@@ -60,7 +63,7 @@ public class Role implements Serializable {
     @Override
     public String toString() {
         return "Role{" +
-        ", code=" + code +
+        "code=" + code +
         ", name=" + name +
         ", description=" + description +
         ", disabled=" + disabled +

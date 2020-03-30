@@ -1,7 +1,7 @@
 package htmap.pjmanage.service;
 
 import htmap.pjmanage.entity.User;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author helihuo
  * @since 2020-03-30
  */
-public interface UserService extends IService<User> {
+public interface IUserService extends IService<User> {
 
 }

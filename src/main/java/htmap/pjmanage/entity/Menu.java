@@ -1,10 +1,9 @@
 package htmap.pjmanage.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.enums.IdType;
-import com.baomidou.mybatisplus.annotations.TableName;
+import com.baomidou.mybatisplus.annotation.TableName;
 import java.io.Serializable;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
 /**
  * <p>
@@ -15,15 +14,17 @@ import java.io.Serializable;
  * @since 2020-03-30
  */
 @TableName("t_menu")
+@ApiModel(value="Menu对象", description="")
 public class Menu implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    @TableId(value = "code", type = IdType.AUTO)
-    private String code;
+      private String code;
+
     private String name;
-    @TableField("p_code")
+
     private String pCode;
+
     private Integer disabled;
 
 
@@ -62,7 +63,7 @@ public class Menu implements Serializable {
     @Override
     public String toString() {
         return "Menu{" +
-        ", code=" + code +
+        "code=" + code +
         ", name=" + name +
         ", pCode=" + pCode +
         ", disabled=" + disabled +

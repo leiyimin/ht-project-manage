@@ -64,7 +64,7 @@
         <Root level="debug">
             <AppenderRef ref="File"/>
         </Root>
-        <Logger name="htmap.pjmanage.mapper" level="TRACE" additivity="false">
+        <Logger name="htmap.pjmanage.dao" level="TRACE" additivity="false">
             <AppenderRef ref="Console"/>
         </Logger>
     </Loggers>

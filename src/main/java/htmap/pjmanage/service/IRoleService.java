@@ -1,7 +1,7 @@
 package htmap.pjmanage.service;
 
 import htmap.pjmanage.entity.Role;
-import com.baomidou.mybatisplus.service.IService;
+import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
  * <p>
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.service.IService;
  * @author helihuo
  * @since 2020-03-30
  */
-public interface RoleService extends IService<Role> {
+public interface IRoleService extends IService<Role> {
 
 }

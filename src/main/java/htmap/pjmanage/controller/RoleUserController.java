@@ -3,7 +3,8 @@ package htmap.pjmanage.controller;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RestController;
+import htmap.pjmanage.common.BaseController;
 
 /**
  * <p>
@@ -13,9 +14,9 @@ import org.springframework.stereotype.Controller;
  * @author helihuo
  * @since 2020-03-30
  */
-@Controller
-@RequestMapping("/roleUser")
-public class RoleUserController {
+@RestController
+@RequestMapping("/role-user")
+public class RoleUserController extends BaseController {
 
 }
 

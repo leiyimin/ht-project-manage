@@ -1,9 +1,9 @@
 package htmap.pjmanage.service.impl;
 
 import htmap.pjmanage.entity.RoleUser;
-import htmap.pjmanage.mapper.RoleUserMapper;
-import htmap.pjmanage.service.RoleUserService;
-import com.baomidou.mybatisplus.service.impl.ServiceImpl;
+import htmap.pjmanage.dao.RoleUserMapper;
+import htmap.pjmanage.service.IRoleUserService;
+import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
 /**
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-03-30
  */
 @Service
-public class RoleUserServiceImpl extends ServiceImpl<RoleUserMapper, RoleUser> implements RoleUserService {
+public class RoleUserServiceImpl extends ServiceImpl<RoleUserMapper, RoleUser> implements IRoleUserService {
 
 }
