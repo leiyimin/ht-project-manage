@@ -1,10 +1,9 @@
 package htmap.pjmanage.entity;
 
-import com.baomidou.mybatisplus.annotations.TableField;
-import com.baomidou.mybatisplus.annotations.TableId;
-import com.baomidou.mybatisplus.annotations.TableLogic;
-import com.baomidou.mybatisplus.annotations.TableName;
-import com.baomidou.mybatisplus.enums.IdType;
+import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
+import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -20,30 +19,33 @@ import java.util.Date;
 @TableName("t_user")
 public class User implements Serializable {
 
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID=1L;
 
-    @TableId(value = "id", type = IdType.AUTO)
+      @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
+
     /**
      * 用户名
      */
-    @TableField("user_name")
     private String userName;
+
     private String name;
-    @TableField("pass_word")
+
     private String passWord;
+
     private String gender;
+
     private Integer dept;
+
     private String email;
-    private Integer disabled;
-    @TableField("create_time")
+
     private Date createTime;
+
     /**
      * 逻辑删除符
      */
-    @TableField("logic_flag")
     @TableLogic
-    private Integer logicFlag;
+    private Integer isDelete;
 
 
     public Integer getId() {
@@ -102,14 +104,6 @@ public class User implements Serializable {
         this.email = email;
     }
 
-    public Integer getDisabled() {
-        return disabled;
-    }
-
-    public void setDisabled(Integer disabled) {
-        this.disabled = disabled;
-    }
-
     public Date getCreateTime() {
         return createTime;
     }
@@ -118,27 +112,26 @@ public class User implements Serializable {
         this.createTime = createTime;
     }
 
-    public Integer getLogicFlag() {
-        return logicFlag;
+    public Integer getIsDelete() {
+        return isDelete;
     }
 
-    public void setLogicFlag(Integer logicFlag) {
-        this.logicFlag = logicFlag;
+    public void setIsDelete(Integer isDelete) {
+        this.isDelete = isDelete;
     }
 
     @Override
     public String toString() {
         return "User{" +
-        ", id=" + id +
+        "id=" + id +
         ", userName=" + userName +
         ", name=" + name +
         ", passWord=" + passWord +
         ", gender=" + gender +
         ", dept=" + dept +
         ", email=" + email +
-        ", disabled=" + disabled +
         ", createTime=" + createTime +
-        ", logicFlag=" + logicFlag +
+        ", isDelete=" + isDelete +
         "}";
     }
 }

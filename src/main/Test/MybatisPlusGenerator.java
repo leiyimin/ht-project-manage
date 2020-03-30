@@ -27,7 +27,7 @@ public class MybatisPlusGenerator {
         globalConfig.setOutputDir(System.getProperty("user.dir") + "/src/main/java");
         globalConfig.setAuthor("helihuo");
         globalConfig.setOpen(false)//打开目标文件夹
-                .setFileOverride(false)//覆盖模式
+                .setFileOverride(true)//覆盖模式
                 .setEnableCache(true)//xml开启二级缓存
                 .setSwagger2(false)
                 .setDateType(DateType.ONLY_DATE)
@@ -57,11 +57,11 @@ public class MybatisPlusGenerator {
                 .setNaming(NamingStrategy.underline_to_camel)//下划线到驼峰的命名方式
                 .setTablePrefix("t_")        //表名前缀
                 .setEntityLombokModel(false);//使用lombok
-        strategyConfig.setInclude("t_user");//逆向工程使用的表
-//        strategyConfig.setExclude(null);//排除的表，String数组
+//        strategyConfig.setInclude("t_user");//逆向工程使用的表
+        strategyConfig.setExclude(null);//排除的表，String数组
         strategyConfig.setSuperControllerClass(BaseController.class);//controller父类
         strategyConfig.setRestControllerStyle(true);//生成RestController
-        strategyConfig.setControllerMappingHyphenStyle(true);//驼峰转连接
+        strategyConfig.setControllerMappingHyphenStyle(false);//驼峰转连接
         strategyConfig.setLogicDeleteFieldName("is_delete");//逻辑删除字段名
         //5、整合配置
         AutoGenerator autoGenerator = new AutoGenerator();

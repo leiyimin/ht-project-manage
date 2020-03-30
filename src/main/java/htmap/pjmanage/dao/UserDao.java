@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  * @author helihuo
  * @since 2020-03-30
  */
-public interface UserMapper extends BaseMapper<User> {
+public interface UserDao extends BaseMapper<User> {
 
 }
