@@ -11,7 +11,6 @@ import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
-import java.util.List;
 
 /**
  * <p>
@@ -64,9 +63,6 @@ public class User extends Model<User> {
     @TableLogic
     private Integer isDelete;
 
-    private List<Role> roles;
-
-    private Dept dept;
 
     public static final String ID = "id";
 

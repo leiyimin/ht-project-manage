@@ -1,7 +1,8 @@
 package htmap.pjmanage.dao;
 
-import htmap.pjmanage.entity.User;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import htmap.pjmanage.entity.User;
+import htmap.pjmanage.entity.UserWhole;
 
 /**
  * <p>
@@ -13,4 +14,5 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
  */
 public interface UserDao extends BaseMapper<User> {
 
+    UserWhole selectById(Integer id);
 }

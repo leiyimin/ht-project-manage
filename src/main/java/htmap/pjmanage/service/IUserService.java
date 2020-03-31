@@ -1,7 +1,8 @@
 package htmap.pjmanage.service;
 
-import htmap.pjmanage.entity.User;
 import com.baomidou.mybatisplus.extension.service.IService;
+import htmap.pjmanage.entity.User;
+import htmap.pjmanage.entity.UserWhole;
 
 /**
  * <p>
@@ -12,5 +13,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @since 2020-03-31
  */
 public interface IUserService extends IService<User> {
+
+    UserWhole selectById(Integer id);
 
 }

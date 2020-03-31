@@ -16,6 +16,22 @@
         <result column="last_editor" property="lastEditor"/>
         <result column="update_time" property="updateTime"/>
         <result column="is_delete" property="isDelete"/>
+    </resultMap>
+
+    <!-- 完整的查询映射结果 -->
+    <resultMap id="WholeResultMap" type="htmap.pjmanage.entity.UserWhole">
+        <id column="id" property="id"/>
+        <result column="user_name" property="userName"/>
+        <result column="name" property="name"/>
+        <result column="pass_word" property="passWord"/>
+        <result column="gender" property="gender"/>
+        <result column="dept_id" property="deptId"/>
+        <result column="email" property="email"/>
+        <result column="creator" property="creator"/>
+        <result column="create_time" property="createTime"/>
+        <result column="last_editor" property="lastEditor"/>
+        <result column="update_time" property="updateTime"/>
+        <result column="is_delete" property="isDelete"/>
         <association property="dept" column="dept_id" javaType="htmap.pjmanage.entity.Dept"
                      select="htmap.pjmanage.dao.DeptDao.selectById"></association>
         <collection property="roles" column="id" javaType="ArrayList"
@@ -28,4 +44,7 @@
         id, user_name, name, pass_word, gender, dept_id, email, creator, create_time, last_editor, update_time, is_delete
     </sql>
 
+    <select id="selectById" parameterType="int" resultMap="WholeResultMap">
+        select * from t_user where id=#{id} order by id
+    </select>
 </mapper>
