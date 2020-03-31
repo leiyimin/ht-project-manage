@@ -4,24 +4,32 @@ import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.baomidou.mybatisplus.extension.activerecord.Model;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.experimental.Accessors;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 /**
  * <p>
- * 
+ *
  * </p>
  *
  * @author helihuo
- * @since 2020-03-30
+ * @since 2020-03-31
  */
-@TableName("t_user")
-public class User implements Serializable {
+@Data
+@EqualsAndHashCode(callSuper = false)
+@Accessors(chain = true)
+@TableName(value = "t_user", resultMap = "BaseResultMap")
+public class User extends Model<User> {
 
-    private static final long serialVersionUID=1L;
+    private static final long serialVersionUID = 1L;
 
-      @TableId(value = "id", type = IdType.AUTO)
+    @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
     /**
@@ -35,11 +43,20 @@ public class User implements Serializable {
 
     private String gender;
 
-    private Integer dept;
+    private Integer deptId;
 
     private String email;
 
+    private Integer creator;
+
     private Date createTime;
+
+    /**
+     * 最后操作用户id
+     */
+    private Integer lastEditor;
+
+    private Date updateTime;
 
     /**
      * 逻辑删除符
@@ -47,91 +64,37 @@ public class User implements Serializable {
     @TableLogic
     private Integer isDelete;
 
+    private List<Role> roles;
 
-    public Integer getId() {
-        return id;
-    }
+    private Dept dept;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    public static final String ID = "id";
 
-    public String getUserName() {
-        return userName;
-    }
+    public static final String USER_NAME = "user_name";
 
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
+    public static final String NAME = "name";
 
-    public String getName() {
-        return name;
-    }
+    public static final String PASS_WORD = "pass_word";
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    public static final String GENDER = "gender";
 
-    public String getPassWord() {
-        return passWord;
-    }
+    public static final String DEPT_ID = "dept_id";
 
-    public void setPassWord(String passWord) {
-        this.passWord = passWord;
-    }
+    public static final String EMAIL = "email";
 
-    public String getGender() {
-        return gender;
-    }
+    public static final String CREATOR = "creator";
 
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    public static final String CREATE_TIME = "create_time";
 
-    public Integer getDept() {
-        return dept;
-    }
+    public static final String LAST_EDITOR = "last_editor";
 
-    public void setDept(Integer dept) {
-        this.dept = dept;
-    }
+    public static final String UPDATE_TIME = "update_time";
 
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public Date getCreateTime() {
-        return createTime;
-    }
-
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
-
-    public Integer getIsDelete() {
-        return isDelete;
-    }
-
-    public void setIsDelete(Integer isDelete) {
-        this.isDelete = isDelete;
-    }
+    public static final String IS_DELETE = "is_delete";
 
     @Override
-    public String toString() {
-        return "User{" +
-        "id=" + id +
-        ", userName=" + userName +
-        ", name=" + name +
-        ", passWord=" + passWord +
-        ", gender=" + gender +
-        ", dept=" + dept +
-        ", email=" + email +
-        ", createTime=" + createTime +
-        ", isDelete=" + isDelete +
-        "}";
+    protected Serializable pkVal() {
+        return this.id;
     }
+
 }
