@@ -1,24 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="htmap.pjmanage.dao.MenuDao">
+<mapper namespace="htmap.pjmanage.dao.UserRoleDao">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="htmap.pjmanage.entity.Menu">
+    <resultMap id="BaseResultMap" type="htmap.pjmanage.entity.UserRole">
         <id column="id" property="id" />
-        <result column="code" property="code" />
-        <result column="name" property="name" />
-        <result column="p_id" property="pId" />
-        <result column="disabled" property="disabled" />
+        <result column="user_id" property="userId" />
+        <result column="role_id" property="roleId" />
         <result column="creator" property="creator" />
         <result column="create_time" property="createTime" />
         <result column="last_editor" property="lastEditor" />
         <result column="update_time" property="updateTime" />
-        <result column="is_delete" property="isDelete" />
     </resultMap>
 
     <!-- 通用查询结果列 -->
     <sql id="Base_Column_List">
-        id, code, name, p_id, disabled, creator, create_time, last_editor, update_time, is_delete
+        id, user_id, role_id, creator, create_time, last_editor, update_time
     </sql>
 
 </mapper>

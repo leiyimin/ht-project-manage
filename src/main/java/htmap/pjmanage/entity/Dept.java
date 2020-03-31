@@ -2,6 +2,7 @@ package htmap.pjmanage.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;
+import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.baomidou.mybatisplus.extension.activerecord.Model;
 import lombok.Data;
@@ -22,17 +23,24 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_role_menu")
-public class RoleMenu extends Model<RoleMenu> {
+@TableName("t_dept")
+public class Dept extends Model<Dept> {
 
     private static final long serialVersionUID=1L;
 
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private Integer roleId;
+    private String name;
 
-    private Integer menuId;
+    private Integer pId;
+
+    /**
+     * 部门领导用户id
+     */
+    private Integer leader;
+
+    private String description;
 
     private Integer creator;
 
@@ -45,12 +53,22 @@ public class RoleMenu extends Model<RoleMenu> {
 
     private Date updateTime;
 
+    /**
+     * 逻辑删除符
+     */
+    @TableLogic
+    private Integer isDelete;
+
 
     public static final String ID = "id";
 
-    public static final String ROLE_ID = "role_id";
+    public static final String NAME = "name";
 
-    public static final String MENU_ID = "menu_id";
+    public static final String P_ID = "p_id";
+
+    public static final String LEADER = "leader";
+
+    public static final String DESCRIPTION = "description";
 
     public static final String CREATOR = "creator";
 
@@ -59,6 +77,8 @@ public class RoleMenu extends Model<RoleMenu> {
     public static final String LAST_EDITOR = "last_editor";
 
     public static final String UPDATE_TIME = "update_time";
+
+    public static final String IS_DELETE = "is_delete";
 
     @Override
     protected Serializable pkVal() {

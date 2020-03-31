@@ -1,8 +1,8 @@
 package htmap.pjmanage.service.impl;
 
-import htmap.pjmanage.entity.Menu;
-import htmap.pjmanage.dao.MenuDao;
-import htmap.pjmanage.service.IMenuService;
+import htmap.pjmanage.entity.UserRole;
+import htmap.pjmanage.dao.UserRoleDao;
+import htmap.pjmanage.service.IUserRoleService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +15,6 @@ import org.springframework.stereotype.Service;
  * @since 2020-03-31
  */
 @Service
-public class MenuServiceImpl extends ServiceImpl<MenuDao, Menu> implements IMenuService {
+public class UserRoleServiceImpl extends ServiceImpl<UserRoleDao, UserRole> implements IUserRoleService {
 
 }

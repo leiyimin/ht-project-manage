@@ -9,7 +9,7 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * </p>
  *
  * @author helihuo
- * @since 2020-03-30
+ * @since 2020-03-31
  */
 public interface IRoleMenuService extends IService<RoleMenu> {
 

@@ -1,9 +1,11 @@
 import com.baomidou.mybatisplus.annotation.DbType;
+import com.baomidou.mybatisplus.annotation.FieldFill;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
 import com.baomidou.mybatisplus.generator.config.PackageConfig;
 import com.baomidou.mybatisplus.generator.config.StrategyConfig;
+import com.baomidou.mybatisplus.generator.config.po.TableFill;
 import com.baomidou.mybatisplus.generator.config.rules.DateType;
 import com.baomidou.mybatisplus.generator.config.rules.NamingStrategy;
 import htmap.pjmanage.common.BaseController;
@@ -11,6 +13,9 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:applicationContext.xml"})
@@ -24,11 +29,13 @@ public class MybatisPlusGenerator {
     public void execute() {
         //1、全局配置
         GlobalConfig globalConfig = new GlobalConfig();
-        globalConfig.setOutputDir(System.getProperty("user.dir") + "/src/main/java");
+//        globalConfig.setOutputDir(System.getProperty("user.dir") + "/src/main/java");
+        globalConfig.setOutputDir("F://MybatisPlusGenerator/src/main/java");
         globalConfig.setAuthor("helihuo");
-        globalConfig.setOpen(false)//打开目标文件夹
+        globalConfig.setOpen(true)//打开目标文件夹
                 .setFileOverride(true)//覆盖模式
-                .setEnableCache(true)//xml开启二级缓存
+                .setEnableCache(false)//xml开启二级缓存
+                .setActiveRecord(true)// 开启 activeRecord 模式
                 .setSwagger2(false)
                 .setDateType(DateType.ONLY_DATE)
                 .setMapperName("%sDao")//mapper 命名方式  '%s'是占位符
@@ -52,11 +59,16 @@ public class MybatisPlusGenerator {
                 .setEntity("entity")
                 .setXml("mapper");
         //4、策略配置
+        List<TableFill> tableFillList = new ArrayList<>();
+        TableFill createField = new TableFill("create_time", FieldFill.INSERT);//新增时自动生成值
+        tableFillList.add(createField);
         StrategyConfig strategyConfig = new StrategyConfig();
         strategyConfig.setCapitalMode(false)//开启全局大写命名
                 .setNaming(NamingStrategy.underline_to_camel)//下划线到驼峰的命名方式
-                .setTablePrefix("t_")        //表名前缀
-                .setEntityLombokModel(false);//使用lombok
+                .setTablePrefix("t_")  //表名前缀
+                .setEntityColumnConstant(true) //生成实体类字段常量
+//                .setTableFillList(tableFillList) //自动填充自动设置
+                .setEntityLombokModel(true);//使用lombok
 //        strategyConfig.setInclude("t_user");//逆向工程使用的表
         strategyConfig.setExclude(null);//排除的表，String数组
         strategyConfig.setSuperControllerClass(BaseController.class);//controller父类
@@ -72,4 +84,5 @@ public class MybatisPlusGenerator {
         //6、执行
         autoGenerator.execute();
     }
+
 }

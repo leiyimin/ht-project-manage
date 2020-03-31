@@ -27,6 +27,8 @@
     <!-- mybatisplus的全局策略配置 -->
     <bean id="mpGlobalConfiguration" class="com.baomidou.mybatisplus.core.config.GlobalConfig">
         <property name="dbConfig" ref="dbConfig"/>
+        <!--   是否控制台 print mybatis-plus 的 LOGO     -->
+        <property name="banner" value="false"/>
     </bean>
 
     <!-- mybatis文件配置，扫描所有mapper文件 -->
@@ -35,7 +37,7 @@
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="typeAliasesPackage" value="htmap.pjmanage.entity"/>
-        <!--        <property name="mapperLocations" value="classpath:mapper/*.xml"/>-->
+                <property name="mapperLocations" value="classpath:mapper/*.xml"/>
         <!-- 注入全局配置 -->
         <property name="globalConfig" ref="mpGlobalConfiguration"/>
         <!-- 配置插件 -->
@@ -45,6 +47,8 @@
                 <bean class="com.baomidou.mybatisplus.extension.plugins.PaginationInterceptor"/>
             </array>
         </property>
+        <!-- spring.boot下设置vfs实现，避免路径扫描问题 -->
+        <!--        <property name="vfs"  value="com.baomidou.mybatisplus.spring.boot.starter.SpringBootVFS"></property>-->
     </bean>
 
     <!-- 4、DAO接口所在包名，Spring会自动查找其下的类 -->

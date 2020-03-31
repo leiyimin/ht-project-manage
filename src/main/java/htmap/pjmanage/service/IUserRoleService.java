@@ -1,6 +1,6 @@
 package htmap.pjmanage.service;
 
-import htmap.pjmanage.entity.Menu;
+import htmap.pjmanage.entity.UserRole;
 import com.baomidou.mybatisplus.extension.service.IService;
 
 /**
@@ -11,6 +11,6 @@ import com.baomidou.mybatisplus.extension.service.IService;
  * @author helihuo
  * @since 2020-03-31
  */
-public interface IMenuService extends IService<Menu> {
+public interface IUserRoleService extends IService<UserRole> {
 
 }

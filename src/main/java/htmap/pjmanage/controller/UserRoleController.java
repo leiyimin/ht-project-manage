@@ -15,8 +15,8 @@ import htmap.pjmanage.common.BaseController;
  * @since 2020-03-31
  */
 @RestController
-@RequestMapping("/menu")
-public class MenuController extends BaseController {
+@RequestMapping("/userRole")
+public class UserRoleController extends BaseController {
 
 }
 

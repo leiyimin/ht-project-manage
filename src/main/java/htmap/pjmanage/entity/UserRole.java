@@ -22,17 +22,17 @@ import java.util.Date;
 @Data
 @EqualsAndHashCode(callSuper = false)
 @Accessors(chain = true)
-@TableName("t_role_menu")
-public class RoleMenu extends Model<RoleMenu> {
+@TableName("t_user_role")
+public class UserRole extends Model<UserRole> {
 
     private static final long serialVersionUID=1L;
 
       @TableId(value = "id", type = IdType.AUTO)
     private Integer id;
 
-    private Integer roleId;
+    private Integer userId;
 
-    private Integer menuId;
+    private Integer roleId;
 
     private Integer creator;
 
@@ -45,12 +45,11 @@ public class RoleMenu extends Model<RoleMenu> {
 
     private Date updateTime;
 
-
     public static final String ID = "id";
 
-    public static final String ROLE_ID = "role_id";
+    public static final String USER_ID = "user_id";
 
-    public static final String MENU_ID = "menu_id";
+    public static final String ROLE_ID = "role_id";
 
     public static final String CREATOR = "creator";
 
