@@ -9,15 +9,21 @@
     <mvc:default-servlet-handler/>
 
     <!--扫描 -->
-    <context:component-scan base-package="htmap.pjmanage"/>
+    <context:component-scan base-package="htmap.pjmanage">
+        <!--        排除Controller注解-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
 
     <context:property-placeholder location="classpath:jdbc.properties"/>
 
-    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" destroy-method="close"
+    <bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+          destroy-method="close"
           p:driverClass="${driver}"
           p:jdbcUrl="${url}"
           p:user="${username}"
           p:password="${password}"/>
+
+    <!--    mybatis plus 配置 begin-->
     <bean id="dbConfig" class="com.baomidou.mybatisplus.core.config.GlobalConfig.DbConfig">
         <property name="tablePrefix" value="t_"/>
         <property name="idType" value="AUTO"/>
@@ -31,13 +37,12 @@
         <property name="banner" value="false"/>
     </bean>
 
-    <!-- mybatis文件配置，扫描所有mapper文件 -->
     <!--    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">-->
     <bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
         <property name="configLocation" value="classpath:mybatis-config.xml"/>
         <property name="typeAliasesPackage" value="htmap.pjmanage.entity"/>
-                <property name="mapperLocations" value="classpath:mapper/*.xml"/>
+        <property name="mapperLocations" value="classpath:mapper/*.xml"/>
         <!-- 注入全局配置 -->
         <property name="globalConfig" ref="mpGlobalConfiguration"/>
         <!-- 配置插件 -->
@@ -50,6 +55,7 @@
         <!-- spring.boot下设置vfs实现，避免路径扫描问题 -->
         <!--        <property name="vfs"  value="com.baomidou.mybatisplus.spring.boot.starter.SpringBootVFS"></property>-->
     </bean>
+    <!--    mybatis plus 配置 end-->
 
     <!-- 4、DAO接口所在包名，Spring会自动查找其下的类 -->
     <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer"
